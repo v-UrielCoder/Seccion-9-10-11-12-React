@@ -3,9 +3,13 @@ import { todoReducer } from '../08-useReducer/todoReducer'
 
 export const useTodos = () => {
 
-  const initialState = JSON.parse( localStorage.getItem('todos') || [])
+  const initialState = []
   
-  const [todos, dispatch] = useReducer( todoReducer, initialState);
+  const init = () => {
+    JSON.parse( localStorage.getItem('todos') || [])
+  }
+
+  const [todos, dispatch] = useReducer( todoReducer, initialState, init);
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify( todos ))

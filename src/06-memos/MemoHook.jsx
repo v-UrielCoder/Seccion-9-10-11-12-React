@@ -18,6 +18,7 @@ export const MemoHook = () => {
 
   const memorizeValue = useMemo( () => heavyStuff( counter ), [counter]);
   
+
   return (
     <>
       <h1>Counter : <small>{ counter }</small></h1>
